@@ -8,6 +8,7 @@ const router = express.Router();
 
 router
   .use(ValidateJWT)
+  .get('/search', PostController.searchPost)
   .get('/', PostController.findAll)
   .get('/:id', PostController.findById)
   .delete('/:id', CorrectAuthorOfThePost, PostController.deletePost)
