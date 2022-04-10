@@ -4,8 +4,8 @@ module.exports = (err, _req, res, _next) => {
   let status = '';
 
   switch (err.code) {
-    case 'unprocessableEntity':
-      status = StatusCodes.UNPROCESSABLE_ENTITY;
+    case 'unauthorized':
+      status = StatusCodes.UNAUTHORIZED;
       break;
     case 'badRequest':
       status = StatusCodes.BAD_REQUEST;

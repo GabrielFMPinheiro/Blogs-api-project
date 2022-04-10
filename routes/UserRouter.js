@@ -1,13 +1,13 @@
 const express = require('express');
 const UserController = require('../controllers/UserController');
 const UserValidation = require('../middleware/UserValidation');
-const validateJWT = require('../middleware/validateJWT');
+const ValidateJWT = require('../middleware/ValidateJWT');
 
 const router = express.Router();
 
 router
   .post('/', UserValidation, UserController.createUser)
-  .use(validateJWT)
+  .use(ValidateJWT)
   .get('/', UserController.findAll)
   .get('/:id', UserController.findById);
 

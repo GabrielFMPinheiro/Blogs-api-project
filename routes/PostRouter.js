@@ -1,11 +1,15 @@
 const express = require('express');
 const PostController = require('../controllers/PostController');
-const validateJWT = require('../middleware/validateJWT');
+const ValidateJWT = require('../middleware/ValidateJWT');
+const PostReqValidation = require('../middleware/PostReqValidation');
+const CorrectAuthorOfThePost = require('../middleware/CorrectAuthorOfThePost');
 
 const router = express.Router();
 
 router
-  .use(validateJWT)
-  .get('/', PostController.findAll);
+  .use(ValidateJWT)
+  .get('/', PostController.findAll)
+  .get('/:id', PostController.findById)
+  .put('/:id', CorrectAuthorOfThePost, PostReqValidation, PostController.updatePost);
 
 module.exports = router;
