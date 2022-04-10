@@ -5,9 +5,8 @@ const validateJWT = require('../middleware/validateJWT');
 
 const router = express.Router();
 
-router.use(validateJWT);
-
 router
+  .use(validateJWT)
   .post('/', CategoryValidation, CategoryController.createCategory)
   .get('/', CategoryController.findAll);
 
