@@ -1,6 +1,7 @@
 const { StatusCodes } = require('http-status-codes');
 const jwt = require('jsonwebtoken');
 const UserService = require('../services/UserService');
+require('dotenv').config();
 
 const createUser = async (req, res, next) => {
   try {
