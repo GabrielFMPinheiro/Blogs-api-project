@@ -8,6 +8,7 @@ const router = express.Router();
 router
   .post('/', UserValidation, UserController.createUser)
   .use(ValidateJWT)
+  .delete('/me', UserController.deleteUser)
   .get('/', UserController.findAll)
   .get('/:id', UserController.findById);
 

@@ -57,8 +57,23 @@ const findById = async (id) => {
   }
 };
 
+const deleteUser = async (id) => {
+  try {
+    const linesAffected = await User.destroy(
+      { where: { id } },
+    );
+    return linesAffected;
+  } catch (error) {
+        return ({ error:
+      { code: 'internalServerError',
+        message: 'Something went wrong',
+      } });
+  }
+};
+
 module.exports = {
   createUser,
   findAll,
   findById,
+  deleteUser,
 };

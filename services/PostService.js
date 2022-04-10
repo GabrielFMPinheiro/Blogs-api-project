@@ -64,10 +64,10 @@ const updatePost = async (title, content, id) => {
 
 const deletePost = async (id) => {
   try {
-    const deleteUser = await BlogPost.destroy(
+    const linesAffected = await BlogPost.destroy(
       { where: { id } },
     );
-    return deleteUser;
+    return linesAffected;
   } catch (error) {
         return ({ error:
       { code: 'internalServerError',

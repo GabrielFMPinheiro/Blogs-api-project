@@ -15,7 +15,6 @@ module.exports = async (req, res, next) => {
         return next({ code: 'unauthorized', message: 'Expired or invalid token' });
       }
       const user = await User.findOne({ where: { email: decoded.data.email } });
-
       req.user = user.dataValues;
 
       next();
