@@ -10,6 +10,7 @@ router
   .use(ValidateJWT)
   .get('/', PostController.findAll)
   .get('/:id', PostController.findById)
+  .delete('/:id', CorrectAuthorOfThePost, PostController.deletePost)
   .put('/:id', CorrectAuthorOfThePost, PostReqValidation, PostController.updatePost);
 
 module.exports = router;

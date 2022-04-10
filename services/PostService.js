@@ -62,8 +62,23 @@ const updatePost = async (title, content, id) => {
   }
 };
 
+const deletePost = async (id) => {
+  try {
+    const deleteUser = await BlogPost.destroy(
+      { where: { id } },
+    );
+    return deleteUser;
+  } catch (error) {
+        return ({ error:
+      { code: 'internalServerError',
+        message: 'Something went wrong',
+      } });
+  }
+};
+
 module.exports = {
   findAll,
   findById,
   updatePost,
+  deletePost,
 };

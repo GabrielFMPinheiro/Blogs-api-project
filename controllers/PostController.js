@@ -52,8 +52,24 @@ const updatePost = async (req, res, next) => {
   }
 };
 
+const deletePost = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    await PostService.deletePost(+id);
+
+    return res.status(StatusCodes.NO_CONTENT).end();
+  } catch (error) {
+    next({ error:
+      { code: 'internalServerError',
+        message: 'Something went wrong',
+      } });
+  }
+};
+
 module.exports = {  
   findAll,
   findById,
   updatePost,
+  deletePost,
 };
