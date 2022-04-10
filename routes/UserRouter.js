@@ -9,7 +9,8 @@ router.post('/', UserValidation, UserController.createUser);
 
 router.use(validateJWT);
 
-router.get('/', UserController.findAll);
-router.get('/:id', UserController.findById);
+router
+  .get('/', UserController.findAll)
+  .get('/:id', UserController.findById);
 
 module.exports = router;

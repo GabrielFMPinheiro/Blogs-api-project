@@ -21,6 +21,20 @@ const createCategory = async (req, res, next) => {
   }
 };
 
+const findAll = async (req, res, next) => {
+  try {
+    const categories = await CategoryService.findAll();
+
+    return res.status(StatusCodes.OK).json(categories);
+  } catch (error) {
+    next({ error:
+      { code: 'internalServerError',
+        message: 'Something went wrong',
+      } });
+  }
+};
+
 module.exports = {
   createCategory,
+  findAll,
 };
