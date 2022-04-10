@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 const UserRouter = require('./routes/UserRouter');
 const LoginRouter = require('./routes/LoginRouter');
+const CategoryRouter = require('./routes/CategoryRouter');
 
 const errorMiddleware = require('./middleware/Error');
 
@@ -17,6 +18,7 @@ app.get('/', (request, response) => {
 
 app.use('/user', UserRouter);
 app.use('/login', LoginRouter);
+app.use('/categories', CategoryRouter);
 
 app.use(errorMiddleware);
 
