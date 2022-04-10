@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
       return next(user.error);
     }
   
-    return res.status(StatusCodes.OK).json(user.token);
+    return res.status(StatusCodes.OK).json({ token: user.token });
   } catch (error) {
     return next({ error:
       { code: 'internalServerError',

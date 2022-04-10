@@ -20,7 +20,7 @@ const createUser = async (req, res, next) => {
 
     const token = jwt.sign({ data: newUser }, process.env.JWT_SECRET, jwtConfig);
   
-    return res.status(StatusCodes.CREATED).json(token);
+    return res.status(StatusCodes.CREATED).json({ token });
   } catch (error) {
     return next({ error:
       { code: 'internalServerError',
@@ -29,6 +29,20 @@ const createUser = async (req, res, next) => {
   }
 };
 
+const findAll = async (req, res, next) => {
+  try {
+    const users = await UserService.findAll();
+
+    return res.status(StatusCodes.OK).json(users);
+  } catch (error) {
+    next({ error:
+      { code: 'internalServerError',
+        message: 'Something went wrong',
+      } });
+  }
+};
+
 module.exports = {  
   createUser,
+  findAll,
 };
