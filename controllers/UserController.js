@@ -42,7 +42,26 @@ const findAll = async (req, res, next) => {
   }
 };
 
+const findById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const user = await UserService.findById(+id);
+
+    if (user.error) {
+      return next(user.error);
+    }
+
+    return res.status(StatusCodes.OK).json(user);
+  } catch (error) {
+    next({ error:
+      { code: 'internalServerError',
+        message: 'Something went wrong',
+      } });
+  }
+};
+
 module.exports = {  
   createUser,
   findAll,
+  findById,
 };

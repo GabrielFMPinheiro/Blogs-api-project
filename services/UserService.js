@@ -27,8 +27,28 @@ const createUser = async (user) => {
 const findAll = async () => {
   try {
     const users = await User.findAll();
-    console.log(users);
+
     return users;
+  } catch (error) {
+    return ({ error:
+      { code: 'internalServerError',
+        message: 'Something went wrong',
+      } });
+  }
+};
+
+const findById = async (id) => {
+  try {
+    const user = await User.findByPk(id);
+
+    if (!user) {
+      return ({ error:
+        { code: 'notFound',
+          message: 'User does not exist',
+        } });
+    }
+
+    return user;
   } catch (error) {
     return ({ error:
       { code: 'internalServerError',
@@ -40,4 +60,5 @@ const findAll = async () => {
 module.exports = {
   createUser,
   findAll,
+  findById,
 };
