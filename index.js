@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const UserRouter = require('./routes/UserRouter');
-const LoginRouter = require('./routes/LoginRouter');
-const CategoryRouter = require('./routes/CategoryRouter');
-const PostRouter = require('./routes/PostRouter');
+const UserRouter = require('./src/routes/UserRouter');
+const LoginRouter = require('./src/routes/LoginRouter');
+const CategoryRouter = require('./src/routes/CategoryRouter');
+const PostRouter = require('./src/routes/PostRouter');
 
-const errorMiddleware = require('./middleware/Error');
+const errorMiddleware = require('./src/middleware/Error');
 
 const app = express();
 
