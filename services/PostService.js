@@ -1,11 +1,11 @@
 const { Op } = require('sequelize');
-const { BlogPost, Category, User, PostCategory } = require('../models');
+const { BlogPost, Category, User } = require('../models');
 const { notFound, internalError } = require('../helpers/commonMessages');
 
 const createPost = async (userId, title, categoryIds, content) => {
   try {
     const newPost = await BlogPost.create({ userId, title, content });
-   // await PostCategory.create({ postId: newPost.dataValues.id, categoryId: categoryIds[1] });
+
     return newPost;
   } catch (error) {
     return (internalError());
