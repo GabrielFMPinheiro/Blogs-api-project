@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const { conflict, internalError, notFound } = require('../helpers/commonMessages');
 
 const createUser = async (user) => {
   const { displayName, email, password, image } = user;
@@ -7,20 +8,14 @@ const createUser = async (user) => {
     const userExists = await User.findOne({ where: { email } });
 
     if (userExists) {
-      return ({ error:
-        { code: 'conflict',
-          message: 'User already registered',
-        } });
+      return (conflict('User'));
     }
 
     const newUser = await User.create({ displayName, email, password, image });
 
     return newUser;
   } catch (error) {
-    return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return (internalError());
   }
 };
 
@@ -30,10 +25,7 @@ const findAll = async () => {
 
     return users;
   } catch (error) {
-    return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return (internalError());
   }
 };
 
@@ -42,18 +34,12 @@ const findById = async (id) => {
     const user = await User.findByPk(id);
 
     if (!user) {
-      return ({ error:
-        { code: 'notFound',
-          message: 'User does not exist',
-        } });
+      return (notFound('User'));
     }
 
     return user;
   } catch (error) {
-    return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return (internalError());
   }
 };
 
@@ -64,10 +50,7 @@ const deleteUser = async (id) => {
     );
     return linesAffected;
   } catch (error) {
-        return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+      return (internalError());
   }
 };
 

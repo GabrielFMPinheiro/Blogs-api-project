@@ -1,6 +1,7 @@
 const { StatusCodes } = require('http-status-codes');
 const CategoryService = require('../services/CategoryService');
 require('dotenv').config();
+const { internalError } = require('../helpers/commonMessages');
 
 const createCategory = async (req, res, next) => {
   try {
@@ -14,23 +15,17 @@ const createCategory = async (req, res, next) => {
 
     return res.status(StatusCodes.CREATED).json(newCategory);
   } catch (error) {
-    return next({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return next(internalError());
   }
 };
 
-const findAll = async (req, res, next) => {
+const findAll = async (_req, res, next) => {
   try {
     const categories = await CategoryService.findAll();
 
     return res.status(StatusCodes.OK).json(categories);
   } catch (error) {
-    next({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    next(internalError());
   }
 };
 

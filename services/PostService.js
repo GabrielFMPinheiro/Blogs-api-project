@@ -1,5 +1,16 @@
 const { Op } = require('sequelize');
-const { BlogPost, Category, User } = require('../models');
+const { BlogPost, Category, User, PostCategory } = require('../models');
+const { notFound, internalError } = require('../helpers/commonMessages');
+
+const createPost = async (userId, title, categoryIds, content) => {
+  try {
+    const newPost = await BlogPost.create({ userId, title, content });
+   // await PostCategory.create({ postId: newPost.dataValues.id, categoryId: categoryIds[1] });
+    return newPost;
+  } catch (error) {
+    return (internalError());
+  }
+};
 
 const findAll = async () => {
   try {
@@ -12,10 +23,7 @@ const findAll = async () => {
 
     return blogs;
   } catch (error) {
-    return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return (internalError());
   }
 };
 
@@ -30,15 +38,12 @@ const findById = async (id) => {
       });
 
     if (!blog) {
-        return ({ error: { code: 'notFound', message: 'Post does not exist' } });
+        return (notFound('Post'));
       }
 
     return blog;
   } catch (error) {
-    return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return (internalError());
   }
 };
 
@@ -56,10 +61,7 @@ const updatePost = async (title, content, id) => {
 
     return postUpdated;
   } catch (error) {
-    return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return (internalError());
   }
 };
 
@@ -70,10 +72,7 @@ const deletePost = async (id) => {
     );
     return linesAffected;
   } catch (error) {
-        return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+        return (internalError());
   }
 };
 
@@ -96,7 +95,7 @@ const searchPost = async (query) => {
 
     return blogs;
   } catch (error) {
-    return ({ error: { code: 'internalServerError', message: 'Something went wrong' } });
+    return (internalError());
   }
 };
 
@@ -106,4 +105,5 @@ module.exports = {
   updatePost,
   deletePost,
   searchPost,
+  createPost,
 };

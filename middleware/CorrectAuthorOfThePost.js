@@ -1,6 +1,6 @@
 const PostService = require('../services/PostService');
 
-module.exports = async (req, res, next) => {
+module.exports = async (req, _res, next) => {
   const { params: { id }, user: { email } } = req;
 
   const post = await PostService.findById(+id);

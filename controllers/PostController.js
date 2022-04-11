@@ -1,17 +1,28 @@
 const { StatusCodes } = require('http-status-codes');
 const PostService = require('../services/PostService');
 require('dotenv').config();
+const { internalError } = require('../helpers/commonMessages');
 
-const findAll = async (req, res, next) => {
+const createPost = async (req, res, next) => {
+  try {
+    const { title, categoryIds, content } = req.body;
+    const { id } = req.user;
+
+    const newPost = await PostService.createPost(+id, title, categoryIds, content);
+
+    return res.status(StatusCodes.CREATED).json(newPost);
+  } catch (error) {
+    next(internalError());
+  }
+};
+
+const findAll = async (_req, res, next) => {
   try {
     const posts = await PostService.findAll();
 
     return res.status(StatusCodes.OK).json(posts);
   } catch (error) {
-    next({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    next(internalError());
   }
 };
 
@@ -26,10 +37,7 @@ const findById = async (req, res, next) => {
 
     return res.status(StatusCodes.OK).json(post);
   } catch (error) {
-    next({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    next(internalError());
   }
 };
 
@@ -45,10 +53,7 @@ const updatePost = async (req, res, next) => {
 
     return res.status(StatusCodes.OK).json(postUpdated);
   } catch (error) {
-    next({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    next(internalError());
   }
 };
 
@@ -60,10 +65,7 @@ const deletePost = async (req, res, next) => {
 
     return res.status(StatusCodes.NO_CONTENT).end();
   } catch (error) {
-    next({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    next(internalError());
   }
 };
 
@@ -75,10 +77,7 @@ const searchPost = async (req, res, next) => {
 
     return res.status(StatusCodes.OK).json(posts);
   } catch (error) {
-    next({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    next(internalError());
   }
 };
 
@@ -88,4 +87,5 @@ module.exports = {
   updatePost,
   deletePost,
   searchPost,
+  createPost,
 };

@@ -1,4 +1,5 @@
 const { Category } = require('../models');
+const { conflict, internalError } = require('../helpers/commonMessages');
 
 const createCategory = async (category) => {
   const { name } = category;
@@ -7,20 +8,14 @@ const createCategory = async (category) => {
     const categoryExists = await Category.findOne({ where: { name } });
 
     if (categoryExists) {
-      return ({ error:
-        { code: 'conflict',
-          message: 'Category already registered',
-        } });
+      return (conflict('Category'));
     }
 
     const newCategory = await Category.create({ name });
 
     return newCategory;
   } catch (error) {
-    return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return (internalError());
   }
 };
 
@@ -30,14 +25,31 @@ const findAll = async () => {
 
     return categories;
   } catch (error) {
-    return ({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return (internalError());
+  }
+};
+
+const findById = async (id) => {
+  try {
+    const category = await Category.findByPk(id);
+
+    if (!category) {
+      return (
+        { error:
+          { code: 'badRequest',
+            message: '"categoryIds" not found',
+          } }
+      );
+    }
+
+    return category;
+  } catch (error) {
+    return (internalError());
   }
 };
 
 module.exports = {
   createCategory,
   findAll,
+  findById,
 };

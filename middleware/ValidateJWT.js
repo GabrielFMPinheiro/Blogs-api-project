@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const { User } = require('../models');
+const { internalError } = require('../helpers/commonMessages');
 
-module.exports = async (req, res, next) => {
+module.exports = async (req, _res, next) => {
   const { authorization: token } = req.headers;
   
   if (!token) {
@@ -20,6 +21,6 @@ module.exports = async (req, res, next) => {
       next();
     });
   } catch (error) {
-    next({ error: { code: 'internalServerError', message: 'Something went wrong' } });
+    next(internalError());
   }
 };

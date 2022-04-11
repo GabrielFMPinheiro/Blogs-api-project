@@ -1,5 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 const LoginService = require('../services/LoginService');
+const { internalError } = require('../helpers/commonMessages');
 
 module.exports = async (req, res, next) => {
   try {
@@ -13,9 +14,6 @@ module.exports = async (req, res, next) => {
   
     return res.status(StatusCodes.OK).json({ token: user.token });
   } catch (error) {
-    return next({ error:
-      { code: 'internalServerError',
-        message: 'Something went wrong',
-      } });
+    return next(internalError());
   }
 };
