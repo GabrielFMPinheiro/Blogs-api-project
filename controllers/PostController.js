@@ -1,5 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 const PostService = require('../services/PostService');
+const PostCategoryService = require('../services/PostCategoryService');
 require('dotenv').config();
 const { internalError } = require('../helpers/commonMessages');
 
@@ -9,6 +10,8 @@ const createPost = async (req, res, next) => {
     const { id } = req.user;
 
     const newPost = await PostService.createPost(+id, title, categoryIds, content);
+
+    await PostCategoryService.createPostAndCategory(newPost.id, categoryIds);
 
     return res.status(StatusCodes.CREATED).json(newPost);
   } catch (error) {
