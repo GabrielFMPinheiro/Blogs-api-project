@@ -6,7 +6,7 @@ const createPostAndCategory = async (postId, categoryIds) => {
     await Promise.all(categoryIds.map(async (id) => (
       PostCategory.create({ postId, categoryId: id }))));
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 

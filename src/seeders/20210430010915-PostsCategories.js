@@ -3,15 +3,15 @@ module.exports = {
     await queryInterface.bulkInsert('PostsCategories',
       [
         {
-          postId: 1,
-          categoryId: 1,
+          post_id: 1,
+          category_id: 1,
         },
         {
-          postId: 2,
-          categoryId: 2,
+          post_id: 2,
+          category_id: 2,
         },
 
-      ], { timestamps: false });
+      ], {});
   },
 
   down: async (queryInterface, _Sequelize) => {

@@ -14,6 +14,6 @@ module.exports = async (req, res, next) => {
   
     return res.status(StatusCodes.OK).json({ token: user.token });
   } catch (error) {
-    return next(internalError());
+    return next(internalError(error));
   }
 };

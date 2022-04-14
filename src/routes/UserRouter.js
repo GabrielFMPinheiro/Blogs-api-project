@@ -5,11 +5,12 @@ const ValidateJWT = require('../middleware/ValidateJWT');
 
 const router = express.Router();
 
-router
-  .post('/', UserValidation, UserController.createUser)
-  .use(ValidateJWT)
-  .delete('/me', UserController.deleteUser)
-  .get('/', UserController.findAll)
-  .get('/:id', UserController.findById);
+router.post('/', UserValidation, UserController.createUser);
+
+router.use(ValidateJWT);
+
+router.delete('/me', UserController.deleteUser);
+router.get('/', UserController.findAll);
+router.get('/:id', UserController.findById);
 
 module.exports = router;

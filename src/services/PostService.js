@@ -8,7 +8,7 @@ const createPost = async (userId, title, categoryIds, content) => {
 
     return newPost;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 
@@ -23,7 +23,7 @@ const findAll = async () => {
 
     return blogs;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 
@@ -37,13 +37,11 @@ const findById = async (id) => {
         ], 
       });
 
-    if (!blog) {
-        return (notFound('Post'));
-      }
+    if (!blog) return (notFound('Post'));
 
     return blog;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 
@@ -61,7 +59,7 @@ const updatePost = async (title, content, id) => {
 
     return postUpdated;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 
@@ -72,7 +70,7 @@ const deletePost = async (id) => {
     );
     return linesAffected;
   } catch (error) {
-        return (internalError());
+        return (internalError(error));
   }
 };
 
@@ -95,7 +93,7 @@ const searchPost = async (query) => {
 
     return blogs;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 

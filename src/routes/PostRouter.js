@@ -7,13 +7,17 @@ const CategoryExists = require('../middleware/CategoryExists');
 
 const router = express.Router();
 
-router
-  .use(ValidateJWT)
-  .get('/search', PostController.searchPost)
-  .post('/', PostReqValidation.reqPostMethod, CategoryExists, PostController.createPost)
-  .get('/', PostController.findAll)
-  .get('/:id', PostController.findById)
-  .delete('/:id', CorrectAuthorOfThePost, PostController.deletePost)
-  .put('/:id', CorrectAuthorOfThePost, PostReqValidation.reqPutMethod, PostController.updatePost);
+router.use(ValidateJWT);
+
+router.get('/search', PostController.searchPost);
+router.post('/', PostReqValidation.reqPostMethod, CategoryExists, PostController.createPost);
+router.get('/', PostController.findAll);
+router.get('/:id', PostController.findById);
+
+router.delete('/:id', CorrectAuthorOfThePost, PostController.deletePost);
+router.put('/:id',
+CorrectAuthorOfThePost,
+PostReqValidation.reqPutMethod,
+PostController.updatePost);
 
 module.exports = router;

@@ -15,7 +15,7 @@ const createUser = async (user) => {
 
     return newUser;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 
@@ -25,7 +25,7 @@ const findAll = async () => {
 
     return users;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 
@@ -39,7 +39,7 @@ const findById = async (id) => {
 
     return user;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 
@@ -50,7 +50,7 @@ const deleteUser = async (id) => {
     );
     return linesAffected;
   } catch (error) {
-      return (internalError());
+      return (internalError(error));
   }
 };
 

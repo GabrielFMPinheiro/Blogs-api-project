@@ -13,15 +13,12 @@ module.exports = async (userDetails) => {
       return (badRequest());
     }
   
-    const jwtConfig = {
-      expiresIn: '7d',
-      algorithm: 'HS256',
-    };
+    const jwtConfig = { expiresIn: '7d', algorithm: 'HS256' };
   
     const token = jwt.sign({ data: user }, process.env.JWT_SECRET, jwtConfig);
   
     return { token };
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };

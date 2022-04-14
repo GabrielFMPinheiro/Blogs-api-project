@@ -5,9 +5,9 @@ const ValidateJWT = require('../middleware/ValidateJWT');
 
 const router = express.Router();
 
-router
-  .use(ValidateJWT)
-  .post('/', CategoryValidation, CategoryController.createCategory)
-  .get('/', CategoryController.findAll);
+router.use(ValidateJWT);
+
+router.post('/', CategoryValidation, CategoryController.createCategory);
+router.get('/', CategoryController.findAll);
 
 module.exports = router;

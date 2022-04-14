@@ -1,7 +1,7 @@
 module.exports = (sequelize, _DataTypes) => {
   const PostCategory = sequelize.define('PostCategory',
     {},
-    { timestamps: false, tableName: 'PostsCategories' });
+    { underscored: true, tableName: 'PostsCategories' });
 
     PostCategory.associate = (models) => {
       models.BlogPost.belongsToMany(models.Category, {

@@ -15,7 +15,7 @@ const createCategory = async (category) => {
 
     return newCategory;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 
@@ -25,7 +25,7 @@ const findAll = async () => {
 
     return categories;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 
@@ -44,7 +44,7 @@ const findById = async (id) => {
 
     return category;
   } catch (error) {
-    return (internalError());
+    return (internalError(error));
   }
 };
 

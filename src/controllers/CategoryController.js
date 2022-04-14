@@ -15,7 +15,7 @@ const createCategory = async (req, res, next) => {
 
     return res.status(StatusCodes.CREATED).json(newCategory);
   } catch (error) {
-    return next(internalError());
+    return next(internalError(error));
   }
 };
 
@@ -25,7 +25,7 @@ const findAll = async (_req, res, next) => {
 
     return res.status(StatusCodes.OK).json(categories);
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 

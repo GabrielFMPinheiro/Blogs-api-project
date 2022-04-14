@@ -15,7 +15,7 @@ const createPost = async (req, res, next) => {
 
     return res.status(StatusCodes.CREATED).json(newPost);
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 
@@ -25,7 +25,7 @@ const findAll = async (_req, res, next) => {
 
     return res.status(StatusCodes.OK).json(posts);
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 
@@ -40,7 +40,7 @@ const findById = async (req, res, next) => {
 
     return res.status(StatusCodes.OK).json(post);
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 
@@ -56,7 +56,7 @@ const updatePost = async (req, res, next) => {
 
     return res.status(StatusCodes.OK).json(postUpdated);
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 
@@ -68,7 +68,7 @@ const deletePost = async (req, res, next) => {
 
     return res.status(StatusCodes.NO_CONTENT).end();
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 
@@ -80,7 +80,7 @@ const searchPost = async (req, res, next) => {
 
     return res.status(StatusCodes.OK).json(posts);
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 

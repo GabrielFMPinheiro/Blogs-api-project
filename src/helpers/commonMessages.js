@@ -3,9 +3,9 @@ const conflict = (name) => ({ error:
     message: `${name} already registered`,
   } });
 
-const internalError = () => ({ error:
+const internalError = (error) => ({ error:
   { code: 'internalServerError',
-    message: 'Something went wrong',
+    message: error,
   } });
 
 const badRequest = () => ({ error: {

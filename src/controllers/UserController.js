@@ -23,7 +23,7 @@ const createUser = async (req, res, next) => {
   
     return res.status(StatusCodes.CREATED).json({ token });
   } catch (error) {
-    return next(internalError());
+    return next(internalError(error));
   }
 };
 
@@ -33,7 +33,7 @@ const findAll = async (_req, res, next) => {
 
     return res.status(StatusCodes.OK).json(users);
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 
@@ -48,7 +48,7 @@ const findById = async (req, res, next) => {
 
     return res.status(StatusCodes.OK).json(user);
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 
@@ -59,7 +59,7 @@ const deleteUser = async (req, res, next) => {
 
     return res.status(StatusCodes.NO_CONTENT).end();
   } catch (error) {
-    next(internalError());
+    next(internalError(error));
   }
 };
 
