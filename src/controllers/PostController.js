@@ -1,7 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const PostService = require('../services/PostService');
-const PostCategoryService = require('../services/PostCategoryService');
-require('dotenv').config();
+const { PostService, PostCategoryService } = require('../services');
 const { internalError } = require('../helpers/commonMessages');
 
 const createPost = async (req, res, next) => {

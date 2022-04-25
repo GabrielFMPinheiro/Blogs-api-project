@@ -1,25 +1,30 @@
-require('dotenv').config();
+require('dotenv/config');
+
+const { HOST, PASSWORD_POSTGRES, DATABASE, DB_USERNAME, DB_PORT } = process.env;
 
 module.exports = {
   development: {
-    username: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: 'blogs_api',
-    host: process.env.HOSTNAME,
-    dialect: 'mysql',
+    username: DB_USERNAME,
+    password: PASSWORD_POSTGRES,
+    database: DATABASE,
+    host: HOST,
+    port: DB_PORT,
+    dialect: 'postgres',
   },
   test: {
-    username: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: 'blogs_api',
-    host: process.env.HOSTNAME,
-    dialect: 'mysql',
+    username: DB_USERNAME,
+    password: PASSWORD_POSTGRES,
+    database: DATABASE,
+    host: HOST,
+    port: DB_PORT,
+    dialect: 'postgres',
   },
   production: {
-    username: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: 'blogs_api',
-    host: process.env.HOSTNAME,
-    dialect: 'mysql',
+    username: DB_USERNAME,
+    password: PASSWORD_POSTGRES,
+    database: DATABASE,
+    host: HOST,
+    port: DB_PORT,
+    dialect: 'postgres',
   },
 };

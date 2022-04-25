@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const LoginService = require('../services/LoginService');
+const { LoginService } = require('../services');
 const { internalError } = require('../helpers/commonMessages');
 
 module.exports = async (req, res, next) => {

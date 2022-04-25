@@ -46,12 +46,13 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     - [13 - Sua aplicação deve ter o endpoint GET `post/search?q=:searchTerm`](#13---sua-aplicação-deve-ter-o-endpoint-get-postsearchqsearchterm)
 - [Avisos Finais](#avisos-finais)
 
-# Habilidades 
+# Habilidades
 
 Nesse projeto, você vai construir um back-end usando `ORM` com o pacote `sequelize` do `npm`, e será capaz de:
- - Criar e associar tabelas usando `models` do `sequelize`
- - Construir endpoints para consumir os models que criar 
- - Fazer um `CRUD` com o `ORM`
+
+- Criar e associar tabelas usando `models` do `sequelize`
+- Construir endpoints para consumir os models que criar
+- Fazer um `CRUD` com o `ORM`
 
 # Entregáveis
 
@@ -74,72 +75,77 @@ Primeiro, você irá criar uma tabela para os usuários que desejam se cadastrar
 Você deve desenvolver uma aplicação em `Node.js` usando o pacote `sequelize` para fazer um `CRUD` de posts.
 
 Para fazer um post é necessário usuário e login, portanto será trabalhada a **relação entre** `user` e `post`. Também será necessário a utilização de categorias para seus posts, assim trabalhando a relação de `posts` para `categorias` e de `categorias` para `posts`.
- 
+
 ### Data de Entrega
 
-  - Projeto individual.
+- Projeto individual.
 
-  - Serão `3` dias de projeto.
+- Serão `3` dias de projeto.
 
-  - Data de entrega para avaliação final do projeto: `20/04/2022 14:00`.
+- Data de entrega para avaliação final do projeto: `20/04/2022 14:00`.
 
 ---
 
 # Instruções para entregar seu projeto:
 
-
 ### ANTES DE COMEÇAR A DESENVOLVER:
 
 1. Clone o repositório
-  * `git clone https://github.com/tryber/sd-016-b-project-blogs-api.git`.
-  * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-016-b-project-blogs-api`
+
+- `git clone https://github.com/tryber/sd-016-b-project-blogs-api.git`.
+- Entre na pasta do repositório que você acabou de clonar:
+  - `cd sd-016-b-project-blogs-api`
 
 2. Instale as dependências [**Caso existam**]
-  * `npm install`
+
+- `npm install`
 
 3. Crie uma branch a partir da branch `master`
-  * Verifique que você está na branch `master`
-    * Exemplo: `git branch`
-  * Se não estiver, mude para a branch `master`
-    * Exemplo: `git checkout master`
-  * Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
-    * Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-    * Exemplo: `git checkout -b joaozinho-sd-016-b-project-blogs-api`
+
+- Verifique que você está na branch `master`
+  - Exemplo: `git branch`
+- Se não estiver, mude para a branch `master`
+  - Exemplo: `git checkout master`
+- Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
+  - Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
+  - Exemplo: `git checkout -b joaozinho-sd-016-b-project-blogs-api`
 
 4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-  * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (deve aparecer listada a pasta _joaozinho_ em vermelho)
-  * Adicione o novo arquivo ao _stage_ do Git
-      * Exemplo:
-        * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (deve aparecer listado o arquivo _joaozinho/README.md_ em verde)
-  * Faça o `commit` inicial
-      * Exemplo:
-        * `git commit -m 'iniciando o projeto x'` (fazendo o primeiro commit)
-        * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
+
+- Verifique que as mudanças ainda não estão no _stage_
+  - Exemplo: `git status` (deve aparecer listada a pasta _joaozinho_ em vermelho)
+- Adicione o novo arquivo ao _stage_ do Git
+  - Exemplo:
+    - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
+    - `git status` (deve aparecer listado o arquivo _joaozinho/README.md_ em verde)
+- Faça o `commit` inicial
+  - Exemplo:
+    - `git commit -m 'iniciando o projeto x'` (fazendo o primeiro commit)
+    - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
 
 5. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin joaozinho-sd-016-b-project-blogs-api`
+
+- Usando o exemplo anterior: `git push -u origin joaozinho-sd-016-b-project-blogs-api`
 
 6. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-016-b-project-blogs-api/pulls)
-  * Clique no botão verde _"New pull request"_
-  * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-  * Clique no botão verde _"Create pull request"_
-  * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-  * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-016-b-project-blogs-api/pulls) e confira que o seu _Pull Request_ está criado
+
+- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-016-b-project-blogs-api/pulls)
+- Clique no botão verde _"New pull request"_
+- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
+- Clique no botão verde _"Create pull request"_
+- Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
+- **Não se preocupe em preencher mais nada por enquanto!**
+- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-016-b-project-blogs-api/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
 ### DURANTE O DESENVOLVIMENTO
 
-* Faça `commits` das alterações que você fizer no código regularmente
+- Faça `commits` das alterações que você fizer no código regularmente
 
-* Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
+- Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
 
-* Os comandos que você utilizará com mais frequência são:
+- Os comandos que você utilizará com mais frequência são:
   1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
   2. `git add` _(para adicionar arquivos ao stage do Git)_
   3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
@@ -150,7 +156,7 @@ Para fazer um post é necessário usuário e login, portanto será trabalhada a 
 
 ### Execução de testes unitários
 
-Vamos usar o Jest para executar os testes, use o comando a seguir para executar todos os testes: 
+Vamos usar o Jest para executar os testes, use o comando a seguir para executar todos os testes:
 
 ```sh
 npm test
@@ -161,11 +167,12 @@ Caso queira executar só um arquivo de test use o seguinte comando, considerado 
 ```sh
 npm test tests/req07-createPost.test.js
 ```
+
 ou
+
 ```
 npm test req07
 ```
-
 
 ---
 
@@ -186,6 +193,7 @@ Você também pode instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
 ⚠ PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS. ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO! ⚠
 
 ---
+
 # Requisitos do projeto:
 
 ## Antes de começar:
@@ -268,13 +276,13 @@ Tenha em mente que todas as "respostas" devem respeitar os [status do protocolo 
 
 Alguns exemplos:
 
-  - Requisições que precisam de token mas não o receberam devem retornar um código de `status 401`;
+- Requisições que precisam de token mas não o receberam devem retornar um código de `status 401`;
 
-  - Requisições que não seguem o formato pedido pelo servidor devem retornar um código de `status 400`;
+- Requisições que não seguem o formato pedido pelo servidor devem retornar um código de `status 400`;
 
-  - Um problema inesperado no servidor deve retornar um código de `status 500`;
+- Um problema inesperado no servidor deve retornar um código de `status 500`;
 
-  - Um acesso ao criar um recurso, no nosso caso usuário ou post, deve retornar um código de `status 201`.
+- Um acesso ao criar um recurso, no nosso caso usuário ou post, deve retornar um código de `status 201`.
 
 ---
 
@@ -293,6 +301,7 @@ Alguns exemplos:
     "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
   }
   ```
+
 - Deve conter uma tabela chamada **Categories**, contendo dados com a seguinte estrutura::
 
   ```json
@@ -320,11 +329,11 @@ Alguns exemplos:
     "content": "The whole text for the blog post goes here in this key",
     "userId": 14, // esse é o id que referência usuário que é o autor do post
     "published": "2011-08-01T19:58:00.000Z",
-    "updated": "2011-08-01T19:58:51.947Z",
+    "updated": "2011-08-01T19:58:51.947Z"
   }
   ```
-  
-  **Os dados acima são fictícios, e estão aqui apenas como exemplo**  
+
+  **Os dados acima são fictícios, e estão aqui apenas como exemplo**
 
   **OBS: Os testes irão rodar através do seu migrate usando os seguintes comandos:**
 
@@ -356,6 +365,7 @@ Alguns exemplos:
     "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
   }
   ```
+
 - O campo `displayName` deverá ser uma string com no mínimo de 8 caracteres;
 
 - O campo `email` será considerado válido se tiver o formato `<prefixo>@<domínio>` e se for único. Ele é obrigatório.
@@ -377,6 +387,7 @@ Alguns exemplos:
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8"
   }
   ```
+
   _O token anterior é fictício_
 
 ### Além disso, as seguintes verificações serão feitas:
@@ -457,6 +468,7 @@ Se o usuário cadastrar o campo "email" com um email que já existe, o resultado
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8"
   }
   ```
+
   _O token anterior é fictício_
 
 ### Além disso, as seguintes verificações serão feitas:
@@ -589,11 +601,11 @@ Se o token for inválido o resultado retornado deverá ser conforme exibido abai
 
 - Esse endpoint deve receber uma _Categoria_ no corpo da requisição e criá-la no banco. O corpo da requisição deve ter a seguinte estrutura:
 
- ```json
-  {
-    "name": "Inovação"
-  }
-  ```
+```json
+{
+  "name": "Inovação"
+}
+```
 
 - Caso a Categoria não contenha o `name` a API deve retornar um erro de `status 400`.
 
@@ -650,7 +662,6 @@ Se buscar todas as categorias com sucesso o resultado retornado deverá ser conf
 
 ![Buscar todas as categoria com sucesso](./public/buscartodascategoriascomsucesso.png)
 
-
 **[Será validado que não é possível listar as categorias com o token inválido]**
 
 Se o token for inválido o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
@@ -662,7 +673,6 @@ Se o token for inválido o resultado retornado deverá ser conforme exibido abai
 Se o token for inexistente o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
 
 ![Buscar uma categoria sem token](./public/buscarcategoriasemtoken.png)
-
 
 ### 7 - Sua aplicação deve ter o endpoint POST `/post`
 
@@ -713,7 +723,6 @@ Se não conter o campo `categoryIds` o resultado retornado deverá ser conforme 
 Se o campo `categoryIds` tiver uma categoria inexistente, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
 
 ![blogpost categoryId invalida](./public/cadastrarpostcomcategoryidinvalida.png)
-
 
 **[Será validado que não é possível cadastrar um blogpost sem o token]**
 
@@ -785,7 +794,7 @@ Se o token for inválido o resultado retornado deverá ser conforme exibido abai
 - Retorna um **BlogPost** com o `id` especificado. O retorno deve ter os seguinte formato:
 
 ```json
-  {
+{
   "id": 1,
   "title": "Post do Ano",
   "content": "Melhor post do ano",
@@ -833,8 +842,6 @@ Se o id do post for inválido o resultado retornado deverá ser conforme exibido
 
 ![Listar um post inexistente](./public/listarumpostinexistente.png)
 
-
-
 ### 10 - Sua aplicação deve ter o endpoint PUT `/post/:id`
 
 #### Os seguintes pontos serão avaliados:
@@ -871,7 +878,6 @@ Se editar um blogpost com sucesso o resultado retornado deverá ser conforme exi
 Só será possível editar o título ou o conteúdo de um post.
 
 ![editar com campo categorias](./public/editarpostcomcategorias.png)
-
 
 **[Será validado que não é possível editar um blogpost com outro usuário]**
 
@@ -1004,7 +1010,7 @@ Se não conter o token o resultado retornado deverá ser conforme exibido abaixo
     ]
   }
 ]
-  ```
+```
 
 - Caso nenhum **BlogPost** satisfaça a busca, retorne um array vazio.
 
@@ -1046,16 +1052,16 @@ Se o token for inválido o resultado retornado deverá ser conforme exibido abai
 
 ![blogpost com token inválido](./public/buscarpostcomtokeninvalido.png)
 
---- 
+---
 
 ## Depois de terminar o desenvolvimento
 
 Para **"entregar"** seu projeto, siga os passos a seguir:
 
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-016-b`
+- Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
+  - No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
+  - No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
+  - No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-016-b`
 
 Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um vídeo explicativo](https://vimeo.com/362189205).
 

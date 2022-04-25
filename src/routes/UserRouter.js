@@ -1,11 +1,10 @@
 const express = require('express');
-const UserController = require('../controllers/UserController');
-const UserValidation = require('../middleware/UserReqValidation');
-const ValidateJWT = require('../middleware/ValidateJWT');
+const { UserController } = require('../controllers');
+const { UserReqValidation, ValidateJWT } = require('../middleware');
 
 const router = express.Router();
 
-router.post('/', UserValidation, UserController.createUser);
+router.post('/', UserReqValidation, UserController.createUser);
 
 router.use(ValidateJWT);
 

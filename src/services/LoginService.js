@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
-require('dotenv').config();
 const { badRequest, internalError } = require('../helpers/commonMessages');
 
 module.exports = async (userDetails) => {

@@ -1,9 +1,11 @@
 const express = require('express');
-const PostController = require('../controllers/PostController');
-const ValidateJWT = require('../middleware/ValidateJWT');
-const PostReqValidation = require('../middleware/PostReqValidation');
-const CorrectAuthorOfThePost = require('../middleware/CorrectAuthorOfThePost');
-const CategoryExists = require('../middleware/CategoryExists');
+const { PostController } = require('../controllers');
+const {
+  ValidateJWT,
+  PostReqValidation,
+  CorrectAuthorOfThePost,
+  CategoryExists,
+} = require('../middleware');
 
 const router = express.Router();
 

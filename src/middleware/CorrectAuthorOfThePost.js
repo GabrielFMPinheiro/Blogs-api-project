@@ -1,4 +1,4 @@
-const PostService = require('../services/PostService');
+const { PostService } = require('../services');
 const { internalError } = require('../helpers/commonMessages');
 
 module.exports = async (req, _res, next) => {

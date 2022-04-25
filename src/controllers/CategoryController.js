@@ -1,6 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const CategoryService = require('../services/CategoryService');
-require('dotenv').config();
+const { CategoryService } = require('../services');
 const { internalError } = require('../helpers/commonMessages');
 
 const createCategory = async (req, res, next) => {

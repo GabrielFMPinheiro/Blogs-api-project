@@ -1,4 +1,4 @@
-const CategoryService = require('../services/CategoryService');
+const { CategoryService } = require('../services');
 const { internalError } = require('../helpers/commonMessages');
 
 module.exports = async (req, _res, next) => {

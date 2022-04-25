@@ -1,13 +1,12 @@
 const express = require('express');
-const CategoryController = require('../controllers/CategoryController');
-const CategoryValidation = require('../middleware/CategoryReqValidation');
-const ValidateJWT = require('../middleware/ValidateJWT');
+const { CategoryController } = require('../controllers');
+const { CategoryReqValidation, ValidateJWT } = require('../middleware');
 
 const router = express.Router();
 
 router.use(ValidateJWT);
 
-router.post('/', CategoryValidation, CategoryController.createCategory);
+router.post('/', CategoryReqValidation, CategoryController.createCategory);
 router.get('/', CategoryController.findAll);
 
 module.exports = router;
