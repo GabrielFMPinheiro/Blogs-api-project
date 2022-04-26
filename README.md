@@ -34,6 +34,8 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
   
   <summary><h4>POST /user<h4></summary>
 
+- Add a new user to your database table
+
 - body format:
 
 ```json
@@ -62,6 +64,8 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
   
   <summary><h4>POST /login<h4></summary>
 
+- Log into the application
+
 - body format:
 
 ```json
@@ -81,10 +85,41 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
 ```
 
 </details>
+
+<details>
+  
+  <summary><h4>GET /user<h4></summary>
+
+- Get all users
+
+- header format:
+
+```json
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8" //rules: required, token created after login or after creating a new user
+}
+```
+
+- answer format:
+
+```json
+[
+  {
+    "id": "401465483996",
+    "displayName": "Brett Wiltshire",
+    "email": "brett@email.com",
+    "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
+  }
+]
+```
+
+</details>
   
 <details>
   
   <summary><h4>GET /user/:id<h4></summary>
+
+- Get the user based on the id
 
 - header format:
 
@@ -117,6 +152,8 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
 <details>
   
   <summary><h4>POST /categories<h4></summary>
+
+- Add a new category
 
 - header format:
 
@@ -153,6 +190,8 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
 <details>
   
   <summary><h4>GET /categories<h4></summary>
+
+- Get all categories
 
 - header format:
 
@@ -193,6 +232,8 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
 <details>
   
   <summary><h4>POST /post<h4></summary>
+
+- Add a new post
 
 - header format:
 
@@ -236,6 +277,8 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
   
 <details>
   <summary><h4>GET /post<h4></summary>
+
+- Get all posts
 
 - header format:
 
@@ -296,6 +339,8 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
 <details>
     <summary><h4>GET /post/:id<h4></summary>
 
+- Get a post based on id
+
 - header format:
 
 ```json
@@ -351,7 +396,9 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
 </details>
   
 <details>
-      <summary><h4>GET /post/:id<h4></summary>
+      <summary><h4>PUT /post/:id<h4></summary>
+
+- Update a post based on id
 
 - header format:
 
@@ -402,6 +449,8 @@ This is a solution to the Blogs API challenge on [Trybe](https://www.betrybe.com
 <details>
       <summary><h4>DELETE /post/:id<h4></summary>
 
+- Delete a post based on id
+
 - answer format:
 
 ```
@@ -415,6 +464,8 @@ No body returned for response
 <details>
       <summary><h4>DELETE /user/me<h4></summary>
 
+- Delete the actual user logged in
+
 - answer format:
 
 ```
@@ -427,6 +478,8 @@ No body returned for response
         
 <details>
       <summary><h4>GET /post/search?q=searchTerm<h4></summary>
+
+- Get a post based on a search term
 
 - answer format:
 
