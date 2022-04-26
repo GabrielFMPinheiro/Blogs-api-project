@@ -472,6 +472,4 @@ No body returned for response
 
 - Linkedin- [Gabriel Pinheiro](https://www.linkedin.com/feed/)
 
-- Frontend Mentor - [@GabrielFMPinheiro](https://www.frontendmentor.io/profile/GabrielFMPinheiro)
-
 - Email - g.felippe5965@gmail.com
