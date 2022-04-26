@@ -14,6 +14,10 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.get('/', (_req, res) => {
+  res.send('<h1>Welcome to blogs api</h1>');
+});
+
 app.use('/user', UserRouter);
 app.use('/login', LoginRouter);
 app.use('/categories', CategoryRouter);

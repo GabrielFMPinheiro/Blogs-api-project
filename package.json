@@ -16,6 +16,7 @@
     "shelljs": "0.8.4"
   },
   "scripts": {
+    "dev": "nodemon index.js",
     "start": "node index.js"
   },
   "devDependencies": {
