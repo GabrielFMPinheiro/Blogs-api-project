@@ -523,6 +523,6 @@ No body returned for response
 
 ## Author
 
-- Linkedin- [Gabriel Pinheiro](https://www.linkedin.com/feed/)
+- Linkedin- [Gabriel Pinheiro](https://www.linkedin.com/in/gabrielfmpinheiro/)
 
 - Email - g.felippe5965@gmail.com
